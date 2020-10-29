@@ -19,7 +19,7 @@ I'll break it down into a few steps:
 2. Setting your name
 3. Setting your formatting preference
 
-## 0. Preperation 
+## 0. Preparation 
 
 If you are only want to use the program, go to /releases/ and download the .exe.
 If you want to mess with the code, download the entire thing I suppose 8)
