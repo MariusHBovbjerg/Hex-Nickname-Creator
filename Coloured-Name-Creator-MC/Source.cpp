@@ -13,7 +13,7 @@ using namespace std;
 
 float setGradientResolution(int nameSize, int gradientSize) {
 	if (nameSize > gradientSize) {
-		return round((float)nameSize / (float)gradientSize);
+		return ceil((float)nameSize / (float)gradientSize);
 
 	}
 	else {
