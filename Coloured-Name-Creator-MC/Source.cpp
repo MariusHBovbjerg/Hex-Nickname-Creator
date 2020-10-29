@@ -45,7 +45,6 @@ string buildUserName(string name, vector<string> colors, string code) {
 
 			i = 0;
 		}
-		cout << nameTemp << endl;
 	}
 	return nameTemp;
 }
