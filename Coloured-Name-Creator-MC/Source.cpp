@@ -23,19 +23,29 @@ float setGradientResolution(int nameSize, int gradientSize) {
 }
 
 string buildUserName(string name, vector<string> colors, string code) {
-	string nameTemp;
+
 	const float gradientRes = setGradientResolution(name.size(), colors.size());
+
 	int colorIndex = 0;
+
 	int power = 0;
-	for (size_t i = 1; i != name.size() - power + 1; i++) {
 
-		nameTemp = nameTemp + "&#" + colors[colorIndex] + code + name.at(i + power - 1);
+	string nameTemp = "&#" + colors[colorIndex] + code;
+	for (size_t i = 1; i < name.size() - power+1; ++i) {
 
-		if (i / gradientRes == 1) {
+		nameTemp = nameTemp + name.at(i-1+power);
+
+		if ((i) / gradientRes == 1 && (power + i) != name.size()) {
+
 			colorIndex++;
+
+			nameTemp = nameTemp + "&#" + colors[colorIndex] + code;
+
 			power = power + i;
+
 			i = 0;
 		}
+		cout << nameTemp << endl;
 	}
 	return nameTemp;
 }
@@ -46,7 +56,7 @@ vector<string> fetchcolors(const string url) {
 
 	string intermediate = url.substr(url.find_last_of('/')+1, url.size());
 
-	int stringSize = intermediate.size() / 7 + 1;
+	size_t stringSize = intermediate.size() / 7 + 1;
 
 	for (size_t i = 0; i < stringSize; ++i) {
 
@@ -178,7 +188,7 @@ int main(void) {
 	vector<string> c;
 
 	c = fetchcolors(url);
-	name = buildUserName(name, c, settings[setting]);
+	name = buildUserName(name, c, settings[setting-1]);
 	name = "/nick " + name;
 
 	placeInClipboard(name);
