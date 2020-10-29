@@ -31,6 +31,7 @@ string buildUserName(string name, vector<string> colors, string code) {
 	int power = 0;
 
 	string nameTemp = "&#" + colors[colorIndex] + code;
+
 	for (size_t i = 1; i < name.size() - power+1; ++i) {
 
 		nameTemp = nameTemp + name.at(i-1+power);
@@ -55,12 +56,12 @@ vector<string> fetchcolors(const string url) {
 
 	string intermediate = url.substr(url.find_last_of('/')+1, url.size());
 
-	size_t stringSize = intermediate.size() / 7 + 1;
+	size_t stringSize = (intermediate.size()+1) / 7 ;
 
 	for (size_t i = 0; i < stringSize; ++i) {
 
 		string shard = intermediate.substr(0, intermediate.find_first_of('-'));
-
+		
 		if (i < (stringSize-1)) {
 
 			string temp = intermediate.substr(7);
@@ -192,7 +193,7 @@ int main(void) {
 
 	placeInClipboard(name);
 	
-	cout << "Your new nickname command has been placed into your clipboard, just ctrl + v, ingame :)" << endl;
+	cout << "Your new nickname command has been placed into your clipboard, just ctrl + v in the in-game chat :)" << endl;
 	Sleep(10 * 1000);
 	return 0;
 }
