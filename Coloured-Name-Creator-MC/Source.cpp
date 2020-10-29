@@ -3,12 +3,17 @@
 #include <string>
 #include <Windows.h>
 #include <iomanip>
-using namespace std;
 
+#define BOLD (string)"&l"
+#define ITALIC (string)"&o" 
+#define UNDERLINE (string)"&n" 
+#define STRIKETHROUGH (string)"&m"
+
+using namespace std;
 
 float setGradientResolution(int nameSize, int gradientSize) {
 	if (nameSize > gradientSize) {
-		return ceil((float)nameSize / (float)gradientSize);
+		return round((float)nameSize / (float)gradientSize);
 
 	}
 	else {
@@ -61,94 +66,6 @@ vector<string> fetchcolors(const string url) {
 	return c;
 }
 
-string createUsername(int setting, string name, vector<string> colors) {
-
-	switch (setting) {
-
-	case 1:
-		
-		return buildUserName(name, colors, "");
-
-		break;
-	case 2:
-		
-		return buildUserName(name, colors, "&l");
-
-		break;
-	case 3:
-
-		return buildUserName(name, colors, "&n");
-
-		break;
-	case 4:
-
-		return buildUserName(name, colors, "&o");
-
-		break;
-	case 5:
-
-		return buildUserName(name, colors, "&m");
-
-		break;
-	case 6:
-
-		return buildUserName(name, colors, "&l&n");
-
-		break;
-	case 7:
-
-		return buildUserName(name, colors, "&l&o");
-
-		break;
-	case 8:
-
-		return buildUserName(name, colors, "&l&m");
-
-		break;
-	case 9:
-
-		return buildUserName(name, colors, "&n&o");
-
-		break;
-	case 10:
-
-		return buildUserName(name, colors, "&n&m");
-
-		break;
-	case 11:
-
-		return buildUserName(name, colors, "&m&o");
-
-		break;
-	case 12:
-
-		return buildUserName(name, colors, "&l&n&o");
-
-		break;
-	case 13:
-
-		return buildUserName(name, colors, "&l&n&m");
-
-		break;
-	case 14:
-
-	
-		return buildUserName(name, colors, "&l&o&m");
-
-		break;
-	case 15:
-
-		return buildUserName(name, colors, "&n&o&m");
-
-		break;
-	case 16:
-
-		return buildUserName(name, colors, "&l&n&o&m");
-
-		break;
-	}
-}
-
 void placeInClipboard(string name) {
 	OpenClipboard(0);
 
@@ -175,6 +92,13 @@ int main(void) {
 	string urlReq = "https://coolors.co/";
 	string name;
 	int setting;
+	string settings[] = 
+	{"", BOLD, UNDERLINE, ITALIC, STRIKETHROUGH, 
+		BOLD + UNDERLINE, BOLD + ITALIC, BOLD + STRIKETHROUGH, 
+		UNDERLINE + ITALIC, UNDERLINE + STRIKETHROUGH, STRIKETHROUGH + ITALIC, 
+		BOLD + UNDERLINE + ITALIC, UNDERLINE + ITALIC + STRIKETHROUGH, 
+		BOLD + ITALIC + STRIKETHROUGH, UNDERLINE + ITALIC + STRIKETHROUGH, 
+		BOLD + UNDERLINE + ITALIC + STRIKETHROUGH };
 
 	cout << "Type coolors.co URL:" << endl;
 	cin >> url;
@@ -254,7 +178,7 @@ int main(void) {
 	vector<string> c;
 
 	c = fetchcolors(url);
-	name = createUsername(setting, name, c);
+	name = buildUserName(name, c, settings[setting]);
 	name = "/nick " + name;
 
 	placeInClipboard(name);
