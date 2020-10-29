@@ -44,7 +44,7 @@ Personally, I like using half the pallette to name length, 12/6 for example.
 ![](namegradientdifference.png)
 
 ######NOTE:
-A 9 letter name and a 8 colour pallette will result in only the first 5 being used, due to how my algorithm handles pallette resolutions 
+A 9 letter name and a 8 colour pallette will result in only the first 5 colours being used, due to how my algorithm handles pallette resolutions 
 at disproportionate and hard to divide size-differences. This is an example, but will work like this whenever there is a relatively small ratio difference.
 
 
