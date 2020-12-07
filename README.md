@@ -34,14 +34,16 @@ NOTE:
 You are limited between 2 and 10 colours on this site, I wanted to expand the possibilities, 
 but the site allows for a very nice overview over your choice.
 
-NOTE-2:
+NOTE 2:
+
 Remember you have to pass THE ENTIRE link, http and everything from coolors.
 USE the standard generator, the gradient pallette creator link will not work
 
 Example link: 
 <code>https://coolors.co/3c91e6-9fd356-342e37-fafffd-fa824c</code>
 
-###### NOTE: 
+NOTE 3:
+
 Your chosen colour WILL be darker in Minecraft with the standard font, as MC adds quite a lot of shadow.
 
 ## 2. Setting your name
