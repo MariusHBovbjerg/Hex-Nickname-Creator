@@ -29,11 +29,12 @@ If you want to mess with the code, download the entire thing I suppose 8)
 
 In this step, you want to go to coolors.co and create a pallette or a gradient that you like.
 
-######NOTE:
+NOTE:
 
 You are limited between 2 and 10 colours on this site, I wanted to expand the possibilities, 
 but the site allows for a very nice overview over your choice.
-######NOTE-2:
+
+NOTE-2:
 Remember you have to pass THE ENTIRE link, http and everything from coolors.
 USE the standard generator, the gradient pallette creator link will not work
 
